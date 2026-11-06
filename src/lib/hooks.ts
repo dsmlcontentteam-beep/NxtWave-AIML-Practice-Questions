@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 /**
  * Adds `is-visible` the first time an element's top enters the viewport (CSS class `reveal`).
@@ -26,15 +26,6 @@ export function useReveal<T extends HTMLElement>() {
     return () => io.disconnect();
   }, []);
   return ref;
-}
-
-export function useDebounced<T>(value: T, ms = 250): T {
-  const [v, setV] = useState(value);
-  useEffect(() => {
-    const t = setTimeout(() => setV(value), ms);
-    return () => clearTimeout(t);
-  }, [value, ms]);
-  return v;
 }
 
 /** Scrolls to a section; the CSS scroll-behavior respects reduced motion. */

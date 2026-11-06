@@ -1,21 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import type { Category, Question } from '../types';
-import { countBy, filterQuestions, groupByCourse, matchesQuery } from './filters';
+import type { Filters, Question } from '../types';
+import { countBy, filterQuestions, groupByCourse } from './filters';
 
-const cat = (id: string, name: string, fullName?: string): Category => ({
-  id,
-  name,
-  short: name,
-  fullName,
-  description: '',
-  skills: [],
-  icon: 'brain',
-  accent: 'g0',
-});
-const CATS = new Map([
-  ['ml', cat('ml', 'Machine Learning')],
-  ['nlp', cat('nlp', 'NLP', 'Natural Language Processing')],
-]);
 const q = (over: Partial<Question>): Question => ({
   id: 'x',
   categoryId: 'ml',
@@ -48,22 +34,13 @@ const QS = [
 ];
 
 describe('filters', () => {
-  it('searches titles, topics, courses and the category name, every word', () => {
-    expect(matchesQuery(QS[1] as Question, 'knn')).toBe(true);
-    expect(matchesQuery(QS[0] as Question, 'supervised regression')).toBe(true);
-    expect(matchesQuery(QS[0] as Question, 'regression knn')).toBe(false);
-    expect(matchesQuery(QS[2] as Question, 'natural language', CATS.get('nlp'))).toBe(true);
-    expect(matchesQuery(QS[1] as Question, '  K-Nearest  ')).toBe(true);
-  });
-
-  it('combines category, difficulty and search', () => {
-    const ids = (f: Parameters<typeof filterQuestions>[1]) =>
-      filterQuestions(QS, f, CATS).map((x) => x.id);
-    expect(ids({ category: 'all', difficulty: 'all', query: '' })).toEqual(['a', 'b', 'c']);
-    expect(ids({ category: 'ml', difficulty: 'all', query: '' })).toEqual(['a', 'b']);
-    expect(ids({ category: 'ml', difficulty: 'Beginner', query: '' })).toEqual(['b']);
-    expect(ids({ category: 'all', difficulty: 'all', query: 'embeddings' })).toEqual(['c']);
-    expect(ids({ category: 'nlp', difficulty: 'Beginner', query: '' })).toEqual([]);
+  it('combines subject and difficulty', () => {
+    const ids = (f: Filters) => filterQuestions(QS, f).map((x) => x.id);
+    expect(ids({ category: 'all', difficulty: 'all' })).toEqual(['a', 'b', 'c']);
+    expect(ids({ category: 'ml', difficulty: 'all' })).toEqual(['a', 'b']);
+    expect(ids({ category: 'ml', difficulty: 'Beginner' })).toEqual(['b']);
+    expect(ids({ category: 'all', difficulty: 'Advanced' })).toEqual(['c']);
+    expect(ids({ category: 'nlp', difficulty: 'Beginner' })).toEqual([]);
   });
 
   it('groups by course in sheet order and counts facets', () => {

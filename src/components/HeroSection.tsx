@@ -45,15 +45,16 @@ export function HeroSection({
             NxtWave <span className="text-line-2">|</span> Career Preparation Program
           </span>
           <h1 className="mt-6 text-[clamp(34px,5.4vw,58px)]">
-            Your Journey to Becoming an{' '}
+            Your{' '}
             <span className="bg-[linear-gradient(100deg,var(--brand),var(--g3))] bg-clip-text text-transparent">
-              ML Engineer
+              AI/ML Interview Preparation
             </span>{' '}
             Starts Here.
           </h1>
           <p className="mt-5 max-w-xl text-[17px] leading-relaxed text-ink-2">
-            Build your practical skills, strengthen your machine learning fundamentals, and prepare
-            for real-world ML Engineer interviews through structured coding practice.
+            Machine learning is at the core of today's AI and data roles. Build your practical
+            skills, strengthen your fundamentals, and get ready for real AI/ML interviews through
+            structured coding practice.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <button

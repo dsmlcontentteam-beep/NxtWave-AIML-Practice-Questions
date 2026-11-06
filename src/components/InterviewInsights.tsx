@@ -14,7 +14,7 @@ export function InterviewInsights() {
           <TrendingUp className="size-3.5" aria-hidden /> Interview data
         </span>
         <h3 id="insights-title" className="mt-3 text-[clamp(20px,2.4vw,26px)]">
-          What ML Engineer interviews ask about
+          What AI/ML interviews ask about
         </h3>
         <p className="mt-2 text-[14px] leading-relaxed text-ink-2">
           These questions map to what companies actually test. Projects come up almost everywhere,

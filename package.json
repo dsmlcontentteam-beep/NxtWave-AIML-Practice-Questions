@@ -2,7 +2,7 @@
   "name": "nxtwave-ml-prep",
   "version": "1.0.0",
   "private": true,
-  "description": "NxtWave ML Engineer Preparation Program: a question hub that sends students to practice on NxtWave Academy.",
+  "description": "NxtWave AI/ML Interview Preparation (Career Preparation Program): a question hub that sends students to practice on NxtWave Academy.",
   "type": "module",
   "scripts": {
     "questions": "node scripts/questions.mjs",

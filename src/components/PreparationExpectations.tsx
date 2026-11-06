@@ -20,7 +20,7 @@ export function PreparationExpectations({ total }: { total: number }) {
           <p className="mt-4 text-[16px] leading-relaxed text-ink-2">
             You don't need to solve everything in one day. Aim to practice{' '}
             <b className="text-ink">2–3 questions daily</b> and keep improving across the different
-            ML domains.
+            AI/ML domains.
           </p>
           <ul className="mt-6 grid gap-3">
             <li className="flex gap-3 rounded-xl border border-line bg-surface p-4">

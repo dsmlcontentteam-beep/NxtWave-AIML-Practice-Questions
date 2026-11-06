@@ -59,7 +59,7 @@ export function App() {
     scrollToId('practice');
   };
   const selectCategory = (id: string, source: string) => {
-    update({ category: id, difficulty: ALL, query: '' });
+    update({ category: id, difficulty: ALL });
     track('category_selected', { category: id, source });
     scrollToId('practice');
   };
@@ -99,7 +99,7 @@ export function App() {
         <PreparationExpectations total={totals.questions} />
         <FinalCTA
           onExplore={() => {
-            update({ category: ALL, difficulty: ALL, query: '' });
+            update({ category: ALL, difficulty: ALL });
             goToPractice('final_cta');
           }}
         />

@@ -29,8 +29,12 @@ export function Navbar({ onStart }: { onStart: () => void }) {
         className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6"
         aria-label="Main"
       >
-        <a href="#top" className="rounded-lg" aria-label="NxtWave ML Engineer Prep, back to top">
-          <Logo subtitle="ML Engineer Prep" />
+        <a
+          href="#top"
+          className="rounded-lg"
+          aria-label="NxtWave AI/ML Interview Prep, back to top"
+        >
+          <Logo subtitle="AI/ML Interview Prep" />
         </a>
         <div className="hidden items-center gap-1 md:flex">
           {LINKS.map((l) => (

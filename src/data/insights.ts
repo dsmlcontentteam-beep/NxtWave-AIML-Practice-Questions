@@ -1,5 +1,5 @@
 /**
- * What ML Engineer interviews actually ask about, from NxtWave's own placement-interview data
+ * What AI/ML interviews actually ask about, from NxtWave's own placement-interview data
  * (Hiring Intelligence, 72 ML and AI companies, Jan–Oct 2026). Aggregates only, no company names.
  * To hide the panel, set INTERVIEW_INSIGHTS to an empty list.
  */

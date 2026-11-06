@@ -78,7 +78,7 @@ export function DifficultyFilter({
   return (
     <fieldset className="min-w-0">
       <legend className="sr-only">Difficulty</legend>
-      <div className="flex h-12 overflow-x-auto rounded-xl border border-line-2 bg-surface p-1 shadow-soft [scrollbar-width:none]">
+      <div className="flex h-11 overflow-x-auto rounded-xl border border-line-2 bg-surface p-1 shadow-soft [scrollbar-width:none]">
         {options.map((o) => {
           const on = o.id === value;
           const n = o.id === ALL ? undefined : (counts.get(o.id) ?? 0);

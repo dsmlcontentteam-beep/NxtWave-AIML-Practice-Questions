@@ -2,7 +2,7 @@ import type { Difficulty, Filters } from '../types';
 import { ALL, DIFFICULTIES } from '../types';
 
 /**
- * Filters live in the URL (?topic=ml&level=Beginner&q=knn), so a mentor can share a link like
+ * Filters live in the URL (?topic=ml&level=Beginner), so a mentor can share a link like
  * "solve the ML questions" on WhatsApp and it opens with those filters set.
  */
 export function readFilters(validCategories: string[]): Filters {
@@ -12,7 +12,6 @@ export function readFilters(validCategories: string[]): Filters {
   return {
     category: validCategories.includes(category) ? category : ALL,
     difficulty: (DIFFICULTIES as string[]).includes(level) ? (level as Difficulty) : ALL,
-    query: (p.get('q') ?? '').slice(0, 80),
   };
 }
 
@@ -24,7 +23,6 @@ export function writeFilters(f: Filters) {
   };
   set('topic', f.category, ALL);
   set('level', f.difficulty, ALL);
-  set('q', f.query.trim(), '');
   const qs = p.toString();
   const url = `${window.location.pathname}${qs ? `?${qs}` : ''}${window.location.hash}`;
   window.history.replaceState(null, '', url);

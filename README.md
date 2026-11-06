@@ -1,9 +1,13 @@
-# NxtWave ML Engineer Preparation Program
+# NxtWave AI/ML Interview Preparation
 
 A single landing page that gathers the coding questions from NxtWave's Python for Data Analytics,
-Machine Learning, Deep Learning, NLP and Computer Vision courses. Students filter and search them,
-then **Solve Question** opens the exact question on NxtWave Academy (`learning.ccbp.in`) in a new
-tab. Academy handles sign-in and solving.
+Machine Learning, Deep Learning, NLP and Computer Vision courses, as a list. Students filter them by
+subject and level, then **Solve Question** opens the exact question on NxtWave Academy
+(`learning.ccbp.in`) in a new tab. Academy handles sign-in and solving.
+
+It is part of the NxtWave **Career Preparation Program**. The goal is to take students through the
+learning portal first, so their basics are clear before interview preparation starts. The roadmap is
+organized by role: Machine Learning Engineer is open, and other roles are locked as "Coming soon".
 
 **What the page deliberately leaves out:**
 - no login;
@@ -36,6 +40,7 @@ Node 20 or newer.
 | `data/missing-links.csv`      | Coding practices from the master sheet that have no Academy link yet (PyTorch).                     |
 | `docs/QUESTIONS-SHEET.md`     | The column-by-column format and the rules every row must pass.                                      |
 | `src/data/insights.ts`        | The interview-data panel (aggregates only). Empty the list to hide it.                              |
+| `src/data/roles.ts`           | The role tabs on the roadmap. Set `open: true` on a role once its roadmap is ready.                 |
 
 Every count on the page is computed from the sheet, never typed in. That covers the hero numbers,
 the per-subject counts, the filter counts and the "how many days" estimate.
@@ -100,7 +105,6 @@ same topic.
 | `concept_clicked`   | A Watch concept link is clicked               | `id`, `category`, `difficulty`                                  |
 | `category_selected` | A subject is chosen                           | `category`, `source` (`explorer`, `roadmap`, `hero`)            |
 | `level_selected`    | A difficulty is chosen                        | `level`                                                         |
-| `search_used`       | Typing pauses on a search                     | `results` (the count only; the search text is never sent)       |
 | `cta_clicked`       | A hero, navbar or final CTA button is clicked | `source`                                                        |
 
 ## Sharing filtered links
@@ -109,7 +113,6 @@ Filters live in the URL, so mentors can share a ready-made view on WhatsApp:
 
 - `/?topic=ml`: Machine Learning only
 - `/?topic=nlp&level=Advanced`: advanced NLP questions
-- `/?q=regression`: everything about regression
 
 Topic ids: `python`, `ml`, `dl`, `nlp`, `cv`. Levels: `Beginner`, `Intermediate`, `Advanced`.
 
@@ -126,7 +129,7 @@ NxtWave Prep platform uses. To use the official logo files from the brand team:
   real sheet) and the filters.
 - **Browser checks** on the production build:
   - every Solve link is an exact Academy question URL that opens in a new tab;
-  - filters, search, empty state and shared links work;
+  - filters, empty state and shared links work;
   - keyboard skip link;
   - no sideways scroll at 390 px;
   - dark mode;

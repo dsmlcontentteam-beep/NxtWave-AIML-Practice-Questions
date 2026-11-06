@@ -35,7 +35,13 @@ export interface Category {
 export interface Filters {
   category: string;
   difficulty: Difficulty | 'all';
-  query: string;
+}
+
+/** A career role on the roadmap. Locked roles show as "Coming soon". */
+export interface Role {
+  id: string;
+  name: string;
+  open: boolean;
 }
 
 export const ALL = 'all';

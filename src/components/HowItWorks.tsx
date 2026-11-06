@@ -6,7 +6,7 @@ const STEPS = [
   {
     Icon: Compass,
     title: 'Explore',
-    body: 'Browse coding questions organized by subject and topic. Filter by level or search for a concept.',
+    body: 'Browse coding questions organized by subject and course. Filter by subject or level to find your next one.',
   },
   {
     Icon: CodeXml,
