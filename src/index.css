@@ -1,6 +1,6 @@
-@import 'tailwindcss';
-@import '@fontsource-variable/geist';
-@import '@fontsource-variable/jetbrains-mono';
+@import "tailwindcss";
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/jetbrains-mono";
 
 /*
  * Design tokens, copied from the NxtWave Prep platform so both feel like one family:
@@ -32,9 +32,9 @@
   --color-g2: var(--g2);
   --color-g3: var(--g3);
   --color-g4: var(--g4);
-  --font-sans: 'Geist Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-mono: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  --font-display: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-display: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace;
   --shadow-soft: 0 1px 2px rgb(11 21 38 / 0.05), 0 8px 24px -8px rgb(11 21 38 / 0.1);
   --shadow-lift: 0 2px 4px rgb(11 21 38 / 0.04), 0 24px 48px -16px rgb(11 21 38 / 0.18);
 }
@@ -99,48 +99,51 @@
   }
 }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
-  -webkit-text-size-adjust: 100%;
-}
+/* Base styles live in the base layer, so Tailwind utilities (text-white, font-sans…) can override them. */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
 
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink-2);
-  font-family: var(--font-sans);
-  font-size: 15px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink-2);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
 
-h1,
-h2,
-h3 {
-  margin: 0;
-  color: var(--ink);
-  font-family: var(--font-display);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.12;
-  text-wrap: balance;
-}
+  h1,
+  h2,
+  h3 {
+    margin: 0;
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.12;
+    text-wrap: balance;
+  }
 
-p {
-  margin: 0;
-  text-wrap: pretty;
-}
+  p {
+    margin: 0;
+    text-wrap: pretty;
+  }
 
-::selection {
-  background: color-mix(in oklab, var(--brand) 25%, transparent);
-}
+  ::selection {
+    background: color-mix(in oklab, var(--brand) 25%, transparent);
+  }
 
-:focus-visible {
-  outline: 2px solid var(--brand);
-  outline-offset: 2px;
-  border-radius: 8px;
+  :focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
+    border-radius: 8px;
+  }
 }
 
 @utility eyebrow {

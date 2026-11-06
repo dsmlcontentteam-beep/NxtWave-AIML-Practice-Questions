@@ -6,8 +6,8 @@ import {
   MessageSquareText,
   ScanEye,
 } from 'lucide-react';
-import type { Accent, Category } from '../types';
 import raw from '../../data/categories.json';
+import type { Accent, Category } from '../types';
 
 /** The five subject areas, in roadmap order. Edit names and descriptions in data/categories.json. */
 export const CATEGORIES: Category[] = raw.map((c) => ({ ...c, accent: c.accent as Accent }));

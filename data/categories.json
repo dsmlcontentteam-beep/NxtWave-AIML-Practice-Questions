@@ -24,7 +24,7 @@
     "name": "Deep Learning",
     "aliases": ["DL"],
     "short": "Deep Learning",
-    "description": "Activation and loss functions, forward and backpropagation, initialisation and batch norm.",
+    "description": "Activation and loss functions, forward and backpropagation, initialization and batch norm.",
     "skills": ["Neural networks", "Backpropagation", "Training"],
     "icon": "layers",
     "accent": "g3"

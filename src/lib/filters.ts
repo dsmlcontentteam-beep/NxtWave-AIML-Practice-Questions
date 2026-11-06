@@ -12,8 +12,15 @@ const norm = (s: string) =>
 /** Searchable text for a question: its title, topic, course, category and type. */
 export const haystack = (q: Question, category?: Category) =>
   norm(
-    [q.title, q.topic, q.course, q.description ?? '', q.type, category?.name ?? '', category?.fullName ?? '']
-      .join(' '),
+    [
+      q.title,
+      q.topic,
+      q.course,
+      q.description ?? '',
+      q.type,
+      category?.name ?? '',
+      category?.fullName ?? '',
+    ].join(' '),
   );
 
 /** Every word of the query must appear somewhere ("knn regression" finds both words). */

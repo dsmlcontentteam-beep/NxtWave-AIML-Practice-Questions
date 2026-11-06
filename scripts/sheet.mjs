@@ -24,7 +24,17 @@ export const COLUMNS = [
   'verified_by',
   'notes',
 ];
-const REQUIRED = ['id', 'category', 'course', 'topic', 'title', 'difficulty', 'type', 'academy_url', 'status'];
+const REQUIRED = [
+  'id',
+  'category',
+  'course',
+  'topic',
+  'title',
+  'difficulty',
+  'type',
+  'academy_url',
+  'status',
+];
 
 /** RFC 4180 CSV: quoted fields, doubled quotes, commas and newlines inside quotes, CRLF, a BOM. */
 export function parseCsv(text) {
@@ -82,7 +92,9 @@ export function loadQuestions(csvText, categories, { showDrafts = false } = {}) 
   if (missing.length) {
     return {
       questions: [],
-      errors: [`Row 1 is missing the column(s): ${missing.join(', ')}. See docs/QUESTIONS-SHEET.md.`],
+      errors: [
+        `Row 1 is missing the column(s): ${missing.join(', ')}. See docs/QUESTIONS-SHEET.md.`,
+      ],
       stats: {},
     };
   }
@@ -107,7 +119,9 @@ export function loadQuestions(csvText, categories, { showDrafts = false } = {}) 
     ids.add(id);
     const categoryId = byName.get(get('category').toLowerCase());
     if (get('category') && !categoryId)
-      problem(`unknown category "${get('category')}". Use one of: ${categories.map((c) => c.name).join(', ')}`);
+      problem(
+        `unknown category "${get('category')}". Use one of: ${categories.map((c) => c.name).join(', ')}`,
+      );
     const pick = (col, allowed) => {
       const v = get(col);
       const hit = allowed.find((a) => a.toLowerCase() === v.toLowerCase());

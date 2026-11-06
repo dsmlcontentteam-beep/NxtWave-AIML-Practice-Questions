@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 
-/** Adds `is-visible` the first time an element scrolls into view (CSS class `reveal`). */
+/**
+ * Adds `is-visible` the first time an element's top enters the viewport (CSS class `reveal`).
+ * Uses a margin, not a share of the element, so very tall sections still reveal on phones.
+ */
 export function useReveal<T extends HTMLElement>() {
   const ref = useRef<T>(null);
   useEffect(() => {
@@ -17,7 +20,7 @@ export function useReveal<T extends HTMLElement>() {
           io.disconnect();
         }
       },
-      { threshold: 0.12 },
+      { threshold: 0, rootMargin: '0px 0px -8% 0px' },
     );
     io.observe(el);
     return () => io.disconnect();
