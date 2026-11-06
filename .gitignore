@@ -1,0 +1,7 @@
+node_modules
+dist
+.vercel
+.env*
+!.env.example
+# Generated from data/questions.csv by `npm run questions` (runs before dev and build).
+src/data/questions.generated.json
