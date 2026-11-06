@@ -39,7 +39,6 @@ Node 20 or newer.
 | `data/questions.template.csv` | An empty sheet with the right header row.                                                           |
 | `data/missing-links.csv`      | Coding practices from the master sheet that have no Academy link yet (PyTorch).                     |
 | `docs/QUESTIONS-SHEET.md`     | The column-by-column format and the rules every row must pass.                                      |
-| `src/data/insights.ts`        | The interview-data panel (aggregates only). Empty the list to hide it.                              |
 | `src/data/roles.ts`           | The role tabs on the roadmap. Set `open: true` on a role once its roadmap is ready.                 |
 
 Every count on the page is computed from the sheet, never typed in. That covers the hero numbers,
@@ -103,7 +102,7 @@ same topic.
 | ------------------- | --------------------------------------------- | --------------------------------------------------------------- |
 | `solve_clicked`     | A Solve button is clicked                     | `id`, `category`, `difficulty`, `source` (`explorer` or `hero`) |
 | `concept_clicked`   | A Watch concept link is clicked               | `id`, `category`, `difficulty`                                  |
-| `category_selected` | A subject is chosen                           | `category`, `source` (`explorer`, `roadmap`, `hero`)            |
+| `category_selected` | A subject is chosen                           | `category`, `source` (`explorer`, `hero`)                       |
 | `level_selected`    | A difficulty is chosen                        | `level`                                                         |
 | `cta_clicked`       | A hero, navbar or final CTA button is clicked | `source`                                                        |
 

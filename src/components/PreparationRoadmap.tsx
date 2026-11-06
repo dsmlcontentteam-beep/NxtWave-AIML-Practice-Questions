@@ -1,17 +1,13 @@
-import { Lock } from 'lucide-react';
+import { Lightbulb, Lock } from 'lucide-react';
 import { ROLES } from '../data/roles';
 import { useReveal } from '../lib/hooks';
 import type { Category } from '../types';
-import { CourseCard } from './CourseCard';
-import { InterviewInsights } from './InterviewInsights';
 import { SectionHeading } from './SectionHeading';
 
 export function PreparationRoadmap({
   categories,
-  onSelect,
 }: {
-  categories: Array<Category & { count: number; courses: number }>;
-  onSelect: (id: string) => void;
+  categories: Array<Category & { count: number }>;
 }) {
   const ref = useReveal<HTMLElement>();
   // Only one role has a roadmap today; the other tabs are locked.
@@ -26,7 +22,6 @@ export function PreparationRoadmap({
     >
       <SectionHeading eyebrow="Your preparation roadmap" title="Choose a Role, Follow Its Roadmap">
         Machine learning is a core part of many AI and data roles, so every roadmap builds on it.
-        Pick a subject area to see its questions.
       </SectionHeading>
 
       <div role="tablist" aria-label="Roles" className="mt-8 flex flex-wrap gap-2">
@@ -73,28 +68,14 @@ export function PreparationRoadmap({
           <b className="text-ink">{active?.name} roadmap</b> · {categories.length} subject areas ·{' '}
           {total} questions, in the order most students learn them.
         </p>
-        <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {categories.map((c, i) => (
-            <CourseCard
-              key={c.id}
-              category={c}
-              step={i + 1}
-              count={c.count}
-              courses={c.courses}
-              onSelect={() => onSelect(c.id)}
-            />
-          ))}
-          <div className="flex flex-col justify-center rounded-2xl border border-dashed border-line-2 p-5">
-            <span className="eyebrow">How to use this</span>
-            <p className="mt-2 text-[14px] leading-relaxed text-ink-2">
-              New to an area? Finish its course on NxtWave Academy first, then come back and
-              practice. Two or three questions a day covers everything in a couple of weeks.
-            </p>
-          </div>
-        </div>
-        <div className="mt-6">
-          <InterviewInsights />
-        </div>
+        <p className="mt-4 flex items-start gap-2.5 rounded-xl border border-line bg-surface-2/70 px-4 py-3 text-[14px] leading-relaxed text-ink-2">
+          <Lightbulb className="mt-1 size-4 shrink-0 text-brand" aria-hidden />
+          <span>
+            <b className="text-ink">How to use this:</b> new to an area? Finish its course on
+            NxtWave Academy first, then come back and practice. Two or three questions a day covers
+            everything in a couple of weeks.
+          </span>
+        </p>
       </div>
     </section>
   );

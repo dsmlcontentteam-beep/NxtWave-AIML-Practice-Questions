@@ -31,7 +31,7 @@ export function App() {
     () =>
       CATEGORIES.map((c) => {
         const items = QUESTIONS.filter((q) => q.categoryId === c.id);
-        return { ...c, count: items.length, courses: new Set(items.map((q) => q.course)).size };
+        return { ...c, count: items.length };
       }).filter((c) => c.count > 0),
     [],
   );
@@ -85,10 +85,7 @@ export function App() {
           }}
           onSelectCategory={(id) => selectCategory(id, 'hero')}
         />
-        <PreparationRoadmap
-          categories={categories}
-          onSelect={(id) => selectCategory(id, 'roadmap')}
-        />
+        <PreparationRoadmap categories={categories} />
         <QuestionExplorer
           questions={QUESTIONS}
           categories={categories}

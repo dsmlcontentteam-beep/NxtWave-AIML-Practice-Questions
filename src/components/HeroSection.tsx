@@ -73,7 +73,7 @@ export function HeroSection({
               onClick={onExplore}
               className="inline-flex items-center gap-2 rounded-xl border border-line-2 bg-surface px-5 py-3 text-[15px] font-semibold text-ink transition-colors hover:border-ink/30"
             >
-              <Compass className="size-4" aria-hidden /> Explore Courses
+              <Compass className="size-4" aria-hidden /> View Roadmap
             </button>
           </div>
           <dl className="mt-10 grid max-w-xl grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-4">
